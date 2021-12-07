@@ -1,0 +1,203 @@
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  background-color: transparent;
+  border-radius: 50%;
+  overflow: hidden;
+
+  /* animation */
+
+  animation-name: black-background;
+  animation-duration: 4000ms;
+  animation-timing-function: cubic-bezier(0.27, 0.63, 0.56, -0.08);
+  animation-fill-mode: none;
+  animation-iteration-count: infinite;
+}
+
+.sun {
+  position: absolute;
+  top: 112px;
+  left: -25px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #f7ee0f;
+  box-shadow: 0 0 4px 2px #f7ee0f;
+  z-index: 2;
+
+  /*Animation*/
+  animation-name: sunset;
+  animation-duration: 4000ms;
+  animation-timing-function: cubic-bezier(0.27, 0.63, 0.56, -0.08);
+  animation-fill-mode: none;
+  animation-iteration-count: infinite;
+  transform-origin: 350%;
+}
+
+.sky {
+  width: 100%;
+  height: 65%;
+  background-color: #7ddffc;
+  position: absolute;
+  z-index: -3;
+}
+.pyramid-left {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  top: 57px;
+  left: 30px;
+  background-color: #f4f4f4;
+  clip-path: polygon(60% 0, 60% 0, 90% 100%, 0 100%);
+  z-index: 2;
+
+  /*Animation*/
+  animation-name: pyramid-shadow;
+  animation-duration: 4000ms;
+  animation-timing-function: cubic-bezier(0.27, 0.63, 0.56, -0.08);
+  animation-fill-mode: normal;
+  animation-iteration-count: infinite;
+}
+
+.pyramid-right {
+  position: absolute;
+  width: 90px;
+  height: 60px;
+  top: 57px;
+  left: 55px;
+  background-color: #949497;
+  clip-path: polygon(27% 0, 27% 0, 90% 100%, 0 100%);
+  z-index: 1;
+
+  /*Animation*/
+  animation-name: pyramid-shadow;
+  animation-duration: 4000ms;
+  animation-timing-function: cubic-bezier(0.27, 0.63, 0.56, -0.08);
+  animation-direction: reverse;
+  animation-fill-mode: normal;
+  animation-iteration-count: infinite;
+}
+
+.shadow {
+  position: absolute;
+  top: 117px;
+  background-color: #beb15d;
+  width: 180px;
+  height: 100px;
+  clip-path: polygon(30px 0, 135px 0, 100% 100%);
+  z-index: -1;
+
+  /*Animation*/
+  animation-name: shadow-movement;
+  animation-duration: 4000ms;
+  animation-timing-function: cubic-bezier(0.33, 0.54, 0.16, -0.31);
+  animation-fill-mode: none;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 0%;
+}
+
+.ground {
+  position: absolute;
+  z-index: -3;
+  bottom: 0;
+  width: 100%;
+  height: 35%;
+  background-color: #f0de75;
+}
+
+/* Animation key frames */
+/* Animation Sun */
+
+@keyframes sunset {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+/* Animation ground shadow */
+
+@keyframes shadow-movement {
+  0% {
+    clip-path: polygon(30px 0, 135px 0, 100% 0%);
+    transform: scaleY(0);
+  }
+  20% {
+    clip-path: polygon(30px 0, 135px 0, 100% 50%);
+    transform: scaleY(1);
+  }
+  78% {
+    clip-path: polygon(30px 0, 135px 0, 50% 100%);
+    transform: scaleY(0.1);
+  }
+  90% {
+    clip-path: polygon(30px 0, 135 0, 0% 50%);
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+    clip-path: polygon(20px 0, 145px 0, 0% 0%);
+  }
+}
+
+/* Animation pyramid-shadow */
+
+@keyframes pyramid-shadow {
+  0% {
+    background-color: #272c34;
+  }
+  15% {
+    background-color: #f4f4f4;
+  }
+  65% {
+    background-color: #dddada;
+  }
+  100% {
+    background-color: #272c34;
+  }
+}
+
+@keyframes black-background {
+  0% {
+    background-color: #272c34;
+  }
+  15% {
+    background-color: transparent;
+  }
+  65% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #272c34;
+  }
+}
